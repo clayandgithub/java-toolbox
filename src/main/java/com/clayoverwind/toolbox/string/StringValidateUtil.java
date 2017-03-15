@@ -1,18 +1,11 @@
 package com.clayoverwind.toolbox.string;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import java.util.Random;
+import java.io.UnsupportedEncodingException;
 
 /**
  * Created by wangweiwei on 2017/3/15.
  */
 public class StringValidateUtil {
-
-    private static final String RANDOM_STRING_BASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
-
-    public static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
 
     public static boolean isEmpty(String s, boolean trim) {
         if (s == null) {
@@ -25,25 +18,25 @@ public class StringValidateUtil {
         return s.isEmpty();
     }
 
-    public static String writeValueAsJsonStr(final Object object) {
-        String retStr = null;
+    public static void testCharset(String s) {
         try {
-            retStr = OBJECT_MAPPER.writeValueAsString(object);
-        } catch (final JsonProcessingException e) {
+            String temp = new String(s.getBytes(), "GBK");
+            System.out.println("****** getBytes() -> GBK ******/n"+temp);
+            temp = new String(s.getBytes("GBK"), "UTF-8");
+            System.out.println("****** GBK -> UTF-8 *******/n"+temp);
+            temp = new String(s.getBytes("GBK"), "ISO-8859-1");
+            System.out.println("****** GBK -> ISO-8859-1 *******/n"+temp);
+            temp = new String(s.getBytes("ISO-8859-1"), "UTF-8");
+            System.out.println("****** ISO-8859-1 -> UTF-8 *******/n"+temp);
+            temp = new String(s.getBytes("ISO-8859-1"), "GBK");
+            System.out.println("****** ISO-8859-1 -> GBK *******/n"+temp);
+            temp = new String(s.getBytes("UTF-8"), "GBK");
+            System.out.println("****** UTF-8 -> GBK *******/n"+temp);
+            temp = new String(s.getBytes("UTF-8"), "ISO-8859-1");
+            System.out.println("****** UTF-8 -> ISO-8859-1 *******/n"+temp);
+        } catch (UnsupportedEncodingException e) {
             throw new RuntimeException(e);
         }
-        return retStr;
-    }
-
-    public static String getRandomString(final int length) {
-        final Random random = new Random();
-        final StringBuilder retSb = new StringBuilder();
-        final int baseLength = RANDOM_STRING_BASE.length();
-        for (int i = 0; i < length; ++i) {
-            char c = RANDOM_STRING_BASE.charAt(random.nextInt(baseLength));
-            retSb.append(c);
-        }
-        return retSb.toString();
     }
 
 }
