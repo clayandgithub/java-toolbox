@@ -8,6 +8,9 @@ import java.awt.*;
  * Created by wangweiwei on 2017/3/15.
  */
 public class BackgroundUtil {
+
+    private BackgroundUtil(){}
+
     public static void addImageBackgroundPanel(final JFrame window, final String imageName) {
         if (imageName != null) {
             JPanel imgPanel = new JPanel() {

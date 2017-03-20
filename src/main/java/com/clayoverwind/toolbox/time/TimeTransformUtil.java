@@ -4,6 +4,9 @@ package com.clayoverwind.toolbox.time;
  * Created by wangweiwei on 2017/3/15.
  */
 public class TimeTransformUtil {
+
+    private TimeTransformUtil(){}
+
     public static String secondToString(long s) {
         long h = s / 3600;
         long m = s / 60 - h * 60;

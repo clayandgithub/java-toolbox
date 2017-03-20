@@ -9,6 +9,9 @@ import java.util.Properties;
  *
  */
 public final class PropertiesUtil {
+
+    private PropertiesUtil(){}
+
     public static Properties loadPropertyFile(final File propFile) throws IOException {
         if (!propFile.exists()) {
             throw new FileNotFoundException(propFile.toString());

@@ -9,6 +9,8 @@ import com.clayoverwind.toolbox.io.IOUtil;
 import org.apache.commons.io.FileUtils;
 
 public class DownloadUtil {
+
+    private DownloadUtil(){}
 	
 	public static String downloadImageByUrl(String imgUrl, String dstDir) {
 		String localDstFileName = dstDir.concat(imgUrl.substring(imgUrl.lastIndexOf('/')));

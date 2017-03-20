@@ -7,6 +7,8 @@ import java.io.UnsupportedEncodingException;
  */
 public class StringValidateUtil {
 
+    private StringValidateUtil(){}
+
     public static boolean isEmpty(String s, boolean trim) {
         if (s == null) {
             return true;

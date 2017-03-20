@@ -10,6 +10,9 @@ import java.util.zip.GZIPInputStream;
  * Created by wangweiwei on 2017/3/15.
  */
 public class StringTransformUtil {
+
+    private StringTransformUtil(){}
+
     public static String gzipInputStreamToUTF8String(InputStream is) {
         GZIPInputStream gZipIs = null;
         InputStreamReader isr = null;

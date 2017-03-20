@@ -12,6 +12,8 @@ import java.util.Enumeration;
 
 public class LayoutUtil {
 
+    private LayoutUtil(){}
+
     public static void layoutAtScreenCenter(JFrame window) {
         Toolkit kit = Toolkit.getDefaultToolkit();
         Dimension screenSize = kit.getScreenSize();

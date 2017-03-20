@@ -9,6 +9,9 @@ import java.util.Random;
  * Created by wangweiwei on 2017/3/15.
  */
 public class StringProduceUtil {
+
+    private StringProduceUtil(){}
+
     private static final String RANDOM_STRING_BASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
 
     public static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();

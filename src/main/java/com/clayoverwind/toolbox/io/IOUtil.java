@@ -20,6 +20,8 @@ import java.net.URL;
 
 public class IOUtil {
 
+	private IOUtil(){}
+
 	/**
 	 * 把以一种编码格式的输入流转化为另一种编码格式的输出流
 	 * 

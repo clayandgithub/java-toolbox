@@ -13,6 +13,9 @@ import java.util.Enumeration;
  * Created by wangweiwei on 2017/3/15.
  */
 public class FontUtil {
+
+    private FontUtil(){}
+
     private static AffineTransform sAffineTransform = new AffineTransform();
 
     private static FontRenderContext sFontRenderContext = new FontRenderContext(sAffineTransform, true,

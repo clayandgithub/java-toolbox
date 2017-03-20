@@ -15,6 +15,8 @@ import java.io.OutputStreamWriter;
 
 public class FileUtil {
 
+    private FileUtil(){}
+
     public static void createDir(final String absDirName) {
         final File dir = new File(absDirName);
         if (!dir.exists()) {
@@ -62,11 +64,11 @@ public class FileUtil {
         }
         return true;
     }
-    
+
     public static boolean writeFileUsingUTF8(final String absFileName, final String content) {
         BufferedWriter bufferedWriter;
         try {
-        	bufferedWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(absFileName), "UTF-8"));
+            bufferedWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(absFileName), "UTF-8"));
             try {
                 bufferedWriter.write(content);
             } finally {
@@ -79,6 +81,7 @@ public class FileUtil {
         }
         return true;
     }
+
     public static void appendContentToFile(final String absFileName, final String content) {
         BufferedWriter bufferedWriter;
         try {
@@ -111,39 +114,39 @@ public class FileUtil {
         }
         return true;
     }
-    
-    public static boolean readInputStreamAndWriteToFile(final String absFileName, InputStream is) {
-    	FileOutputStream fos;
-		try {
-			fos = new FileOutputStream(absFileName);
-			byte[] buffer = new byte[1024];
-            int len = -1;
-	    	while ((len = is.read(buffer)) != -1) {
-                fos.write(buffer, 0, len);
-	    	}
-	    	fos.close();
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
 
-		return true;
+    public static boolean readInputStreamAndWriteToFile(final String absFileName, InputStream is) {
+        FileOutputStream fos;
+        try {
+            fos = new FileOutputStream(absFileName);
+            byte[] buffer = new byte[1024];
+            int len = -1;
+            while ((len = is.read(buffer)) != -1) {
+                fos.write(buffer, 0, len);
+            }
+            fos.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return true;
     }
-    
+
     public static boolean readGzipInputStreamAndWriteToFile(final String absFileName, InputStream is) {
-    	String content = StringTransformUtil.gzipInputStreamToUTF8String(is);
-    	return FileUtil.writeFile(absFileName, content);
+        String content = StringTransformUtil.gzipInputStreamToUTF8String(is);
+        return FileUtil.writeFile(absFileName, content);
     }
-    
+
     public static String getCurDirPath() {
-		File directory = new File("");//参数为空 
-		String path = null;
-		try {
-			path = directory.getCanonicalPath();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		return path;
+        File directory = new File("");//参数为空
+        String path = null;
+        try {
+            path = directory.getCanonicalPath();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return path;
     }
 }

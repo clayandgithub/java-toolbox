@@ -11,6 +11,9 @@ import java.util.List;
  * Created by wangweiwei on 2017/3/15.
  */
 public class DataBaseImportUtil {
+
+    private DataBaseImportUtil(){}
+
     public static class DatabaseField {
         private String fieldName;
 

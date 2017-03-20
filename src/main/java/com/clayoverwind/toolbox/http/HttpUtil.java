@@ -18,6 +18,8 @@ import org.apache.http.util.EntityUtils;
 
 public class HttpUtil {
 
+    private HttpUtil(){}
+
     private static final int WAIT_TIME_OUT = 20000;
 
     public static String httpGetResultStringEntity(final String url) {
